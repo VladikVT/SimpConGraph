@@ -3,7 +3,7 @@ SimpConGraf
 
 __Install__:<br />
 	&emsp;1. Include "libSCG.h"<br />
-	&emsp;2. Create libSCG object and give window size. Example: "libSCG SCG([widhth], [height]);"<br />
+	&emsp;2. Create libSCG object and give window size. Example: "libSCG SCG([widhth], [height], [debug mode "true" or "false"], [beautiful window "true" or "false"]);"<br />
 
 __Usage__:<br />
 	&emsp;SCG.execute("[command]");<br />
