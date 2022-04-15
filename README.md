@@ -1,5 +1,4 @@
 <h1 align="center">SimpConGraph</h1>
-===
 
 ### Information:
 SimpConGraph - C++ unix library for easy drawing in console
