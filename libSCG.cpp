@@ -111,7 +111,20 @@ void libSCG::execute(string command)
 			printLogMsg("Command '" + cmdCopy + "' got not correct data!", 2);
 			return ;
 		}
-
+	}
+	// CIRCLE //
+	else if (cmdAttributes[0] == "circle")
+	{
+		try {
+			circle(cmdAttributes[1],
+				stoi(cmdAttributes[2]), 
+				stoi(cmdAttributes[3]),
+				stoi(cmdAttributes[4]),
+				cmdAttributes[5] == "true");
+		} catch (...) {
+			printLogMsg("Command '" + cmdCopy + "' got not correct data!", 2);
+			return ;
+		}
 	}
 }
 
@@ -219,4 +232,36 @@ void libSCG::setColor(int Br, int Bg, int Bb, int Fr, int Fg, int Fb)
 	printLogMsg("Color set", 0);
 }
 
+void libSCG::circle(string symbol, int x, int y, int radius, bool fill)
+{
+	double thinknessIn = 0.2;
+	if (fill == true) { thinknessIn = radius; }
+	double thinknessOut = radius / 10.0 + 0.1;
+	double rIn = radius - thinknessIn;
+	double rOut = radius + thinknessOut;
 
+	double x1, y1, z;
+
+	for (int i = 0; i < radius * 2 + 1; i++)
+	{
+		for (int j = 0; j < radius * 2 + 1; j++)
+		{
+			x1 = j - radius;
+			y1 = i - radius;
+//			printLogMsg(to_string(x1) + " " + to_string(y1), 0);
+			z = sqrt(pow(x1, 2) + pow(y1, 2));
+			if (rOut >= z && z >= rIn){
+				if (x1 <= 0 && y1 >= 0)
+				{
+					writeSymbol(symbol, j + 1 + x, i + y);
+				} else if (x1 > 0 && y1 > 0) {
+					writeSymbol(symbol, j + x, i + y);
+				} else if (x1 < 0 && y1 < 0) {
+					writeSymbol(symbol, j + 1 + x, i + 1 + y);
+				} else {
+					writeSymbol(symbol, j + x, i + 1 + y);
+				}
+			}
+		}
+	}
+}
