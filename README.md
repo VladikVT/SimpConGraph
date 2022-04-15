@@ -17,10 +17,10 @@ not to write the same thing in every project, i created this library
 
 ### Mini documentation:
 #### Commands:
-> Draw Rectangle: "rect;[fill symbol];[write "true" if you want fill rectangle, else stay empty];[x1];[y1];[x2];[y2]"
-> Draw Dot: "dot;[symbol];[x];[y]"
-> Set foreground color: "fgcolor;[red];[green];[blue]"
-> Set background color: "bgcolor;[red];[green];[blue]"
+Draw Rectangle: "rect;[fill symbol];[write "true" if you want fill rectangle, else stay empty];[x1];[y1];[x2];[y2]" <br />
+Draw Dot: "dot;[symbol];[x];[y]" <br />
+Set foreground color: "fgcolor;[red];[green];[blue]" <br />
+Set background color: "bgcolor;[red];[green];[blue]" <br />
 
 #### Log message construction:
 SCG[Error code] >>> [Log message]
