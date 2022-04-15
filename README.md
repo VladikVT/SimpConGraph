@@ -1,8 +1,8 @@
-SimpConGraph
-============
+<h1 align="center">SimpConGraph</h1>
+===
 
 ### Information:
-SimpConGraph - c++ unix library for easy drawing in console
+SimpConGraph - C++ unix library for easy drawing in console
 
 ### Motivation:
 I often need to draw something in the console, so on order 
@@ -16,16 +16,16 @@ not to write the same thing in every project, i created this library
 > SCG.execute("[command]");
 
 ### Mini documentation:
-__Commands__:
+####Commands:
 Draw Rectangle: "rect;[fill symbol];[write "true" if you want fill rectangle, else stay empty];[x1];[y1];[x2];[y2]"
 Draw Dot: "dot;[symbol];[x];[y]"
 Set foreground color: "fgcolor;[red];[green];[blue]"
 Set background color: "bgcolor;[red];[green];[blue]"
 
-__Log message construction__:
+####Log message construction:
 SCG[Error code] >>> [Log message]
 
-__Error codes__:
+####Error codes:
 0 - succes
 1 - warning error
 2 - critical error
