@@ -16,8 +16,9 @@ not to write the same thing in every project, i created this library
 
 ### Mini documentation:
 #### Commands:
-Draw Rectangle: "rect;[fill symbol];[write "true" if you want fill rectangle, else stay empty];[x1];[y1];[x2];[y2]" <br />
+Draw Rectangle: "rect;[symbol];[fill, "true" or nothing];[x1];[y1];[x2];[y2]" <br />
 Draw Dot: "dot;[symbol];[x];[y]" <br />
+Draw Circle: "circle;[symbol];[x];[y];[radius];[fill, "true" or nothing]" <br />
 Set foreground color: "fgcolor;[red];[green];[blue]" <br />
 Set background color: "bgcolor;[red];[green];[blue]" <br />
 
