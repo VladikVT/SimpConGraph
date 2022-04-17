@@ -35,6 +35,7 @@ class libSCG
 		void rectangle(string symbol, bool fill, int x1, int y1, int x2, int y2);
 		void setColor(int Br, int Bg, int Bb, int Fr, int Fg, int Fb);	
 		void circle(string symbol, int x, int y, int radius, bool fill);
+		void line(string symbol, int x1, int y1, int x2, int y2);
 };
 
 #endif // LIBSCG_H

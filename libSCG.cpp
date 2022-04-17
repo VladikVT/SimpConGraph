@@ -126,6 +126,20 @@ void libSCG::execute(string command)
 			return ;
 		}
 	}
+	// LINE //
+	else if (cmdAttributes[0] == "line")
+	{
+		try {
+			line(cmdAttributes[1],
+				stoi(cmdAttributes[2]), 
+				stoi(cmdAttributes[3]),
+				stoi(cmdAttributes[4]),
+				stoi(cmdAttributes[5]));
+		} catch (...) {
+			printLogMsg("Command '" + cmdCopy + "' got not correct data!", 2);
+			return ;
+		}
+	}
 }
 
 // PRIVATE //
@@ -172,7 +186,7 @@ void libSCG::printLogMsg(string msg, int err)
 
 void libSCG::writeSymbol(string symbol, int x, int y)
 {
-	if (x < sizeX && y < sizeY)
+	if (0 <= x && x < sizeX && 0 <= y && y < sizeY)
 	{
 		if (btflWindow == true) { cout << "\033[" << y + 2 << ";" << x * 2 + 3 << "H"; }
 		else { cout << "\033[" << y  + 1 << ";" << x * 2 + 1 << "H"; }
@@ -189,11 +203,10 @@ void libSCG::rectangle(string symbol, bool fill, int x1, int y1, int x2, int y2)
 	if (x1 < 0 || y1 < 0 || x2 >= sizeX || y2 >= sizeY)
 	{
 		printLogMsg("Rectangle out of window", 1);
-		return ;
 	}
 	if (x1 > x2 || y1 > y2)
 	{
-		printLogMsg("Not correct rectangle coordinates", 1);
+		printLogMsg("Not correct rectangle coordinates", 2);
 		return ;
 	}
 	
@@ -234,6 +247,10 @@ void libSCG::setColor(int Br, int Bg, int Bb, int Fr, int Fg, int Fb)
 
 void libSCG::circle(string symbol, int x, int y, int radius, bool fill)
 {
+	if (x - radius < 0 || y - radius < 0 || x + radius >= sizeX || y + radius >= sizeY)
+	{
+		printLogMsg("Circle out of window", 1);
+	}
 	double thinknessIn = 0.2;
 	if (fill == true) { thinknessIn = radius; }
 	double thinknessOut = radius / 10.0 + 0.1;
@@ -260,6 +277,55 @@ void libSCG::circle(string symbol, int x, int y, int radius, bool fill)
 				} else {
 					writeSymbol(symbol, j + x - radius, i + 1 + y - radius);
 				}
+			}
+		}
+	}
+}
+
+void libSCG::line(string symbol, int x1, int y1, int x2, int y2)
+{
+	if (x1 < 0 || y1 < 0 || x2 >= sizeX || y2 >= sizeY)
+	{
+		printLogMsg("Line out of window", 1);
+	}
+	int dx = (x2 - x1) >= 0 ? 1 : -1;
+	int dy = (y2 - y1) >= 0 ? 1 : -1;
+	int lengthX = abs(x2 - x1);
+	int lengthY = abs(y2 - y1);
+	int length = max(lengthX, lengthY);	
+
+	if (length == 0) { writeSymbol(symbol, x2, y2); }
+	if (lengthY <= lengthX)
+	{
+		int x = x1;
+		int y = y1;
+		int d = -lengthX;
+		length++;
+		while(length--)
+		{
+			writeSymbol(symbol, x, y);
+			x += dx;
+			d += 2 * lengthY;
+			if (d > 0)
+			{
+				d -= 2 * lengthX;
+				y += dy;
+			}
+		}
+	} else {
+		int x = x1;
+		int y = y1;
+		int d = -lengthY;
+		length++;
+		while(length--)
+		{
+			writeSymbol(symbol, x, y);
+			y += dy;
+			d += 2 * lengthX;
+			if (d > 0)
+			{
+				d -= 2 * lengthY;
+				x += dx;
 			}
 		}
 	}
