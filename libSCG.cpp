@@ -248,18 +248,17 @@ void libSCG::circle(string symbol, int x, int y, int radius, bool fill)
 		{
 			x1 = j - radius;
 			y1 = i - radius;
-//			printLogMsg(to_string(x1) + " " + to_string(y1), 0);
 			z = sqrt(pow(x1, 2) + pow(y1, 2));
 			if (rOut >= z && z >= rIn){
 				if (x1 <= 0 && y1 >= 0)
 				{
-					writeSymbol(symbol, j + 1 + x, i + y);
+					writeSymbol(symbol, j + 1 + x - radius, i + y - radius);
 				} else if (x1 > 0 && y1 > 0) {
-					writeSymbol(symbol, j + x, i + y);
+					writeSymbol(symbol, j + x - radius, i + y - radius);
 				} else if (x1 < 0 && y1 < 0) {
-					writeSymbol(symbol, j + 1 + x, i + 1 + y);
+					writeSymbol(symbol, j + 1 + x - radius, i + 1 + y - radius);
 				} else {
-					writeSymbol(symbol, j + x, i + 1 + y);
+					writeSymbol(symbol, j + x - radius, i + 1 + y - radius);
 				}
 			}
 		}
