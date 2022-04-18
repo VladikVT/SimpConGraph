@@ -31,4 +31,8 @@ SCG[Error code] >>> [Log message]
 1 - warning error <br />
 2 - critical error
 
+### Links:
+1. GitHub: https://github.com/VladikVT/SimpConGraph
+2. NotABug: https://notabug.org/VladikVT/SimpConGraph
+
 
