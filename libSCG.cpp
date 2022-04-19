@@ -140,6 +140,12 @@ void libSCG::execute(string command)
 			return ;
 		}
 	}
+	// CLEAR //
+	else if (cmdAttributes[0] == "clear")
+	{
+		clearScreen;
+		drawWindow();
+	}
 }
 
 // PRIVATE //
