@@ -18,8 +18,9 @@ not to write the same thing in every project, i created this library
 #### Commands:
 Draw Rectangle: "rect;[symbol];[fill, "true" or nothing];[x1];[y1];[x2];[y2]" <br />
 Draw Dot: "dot;[symbol];[x];[y]" <br />
-Draw Circle: "circle;[symbol];[x];[y];[radius];[fill, "true" or nothing]" <br />
+Draw Circle: "circle;[symbol];[radius];[fill, "true" or nothing];[x];[y]" <br />
 Draw Line: "line;[symbol];[x1];[y1];[x2];[y2]" <br />
+Write test: "text;[text];[lenght];[x];[y]" <br />
 Set foreground color: "fgcolor;[red];[green];[blue]" <br />
 Set background color: "bgcolor;[red];[green];[blue]" <br />
 Clear window: "clear" <br />
