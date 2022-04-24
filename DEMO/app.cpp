@@ -31,6 +31,6 @@ int main()
 	SCG.execute("line;GG;7;3;7;7");
 	SCG.execute("line;GG;7;7;9;7");
 	SCG.execute("dot;GG;9;6");
-
+	
 	return 0;
 }
