@@ -20,7 +20,7 @@ Draw Rectangle: "rect;[symbol];[fill, "true" or nothing];[x1];[y1];[x2];[y2]" <b
 Draw Dot: "dot;[symbol];[x];[y]" <br />
 Draw Circle: "circle;[symbol];[radius];[fill, "true" or nothing];[x];[y]" <br />
 Draw Line: "line;[symbol];[x1];[y1];[x2];[y2]" <br />
-Write text: "text;[text];[lenght];[x];[y]" <br />
+Write Text: "text;[text];[lenght];[x];[y]" <br />
 Set foreground color: "fgcolor;[red];[green];[blue]" <br />
 Set background color: "bgcolor;[red];[green];[blue]" <br />
 Clear window: "clear" <br />
