@@ -347,9 +347,9 @@ void libSCG::line(string symbol, int x1, int y1, int x2, int y2)
 
 void libSCG::text(string text, int length, int x, int y)
 {
-	if (text.size() > length)
+	if (text.length() > length)
 	{
-		text = text.substr(0, length);
+		text.resize(length);
 		text[length - 1] = '.';
 		text[length - 2] = '.';
 	}
